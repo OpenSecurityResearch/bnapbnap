@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+
+  
+  <title>BNAP, BNAP</title>
+</head>
+
+
+<body>
+
+
+<big><big><big><big><a name="ABOUT"></a>About<br>
+
+
+</big></big></big></big><br>
+
+
+<table style="text-align: left; width: 90%;" border="0" cellpadding="2" cellspacing="2">
+
+
+  <tbody>
+
+
+    <tr>
+
+
+      <td valign="top">Q:</td>
+
+
+      <td valign="top">What is this all about anyway?</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td valign="top">A:</td>
+
+
+      <td valign="top">As part of an overall goal for
+assessing risks to Bluetooth devices,
+we're interested in the common MAC address prefixes that vendors
+allocate to devices. &nbsp;When a vendor registers and obtains a
+MAC prefix
+or organizationally unique identifier, they can use it for anything
+they like. &nbsp;We're interested in the actual prefixes that are
+being
+allocated by vendors in common (and uncommon) Blueetooth devices.</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td valign="top">Q:</td>
+
+
+      <td valign="top">What are the characteristics of
+Bluetooth Device Addresses?<br>
+
+
+      </td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td valign="top">A:</td>
+
+
+      <td valign="top">A Bluetooth Device Address
+(BD_ADDR) is a globally unique value assigned to each Bluetooth adapter
+by the manufacturer. &nbsp;The BD_ADDR information is made up of
+three components:<br>
+
+
+      <br>
+
+
+      
+      <ul>
+
+
+        <li>LAP: The Lower Address Part of the BD_ADDR is the
+portion of the MAC address that is allocated by the vendor to devices.
+&nbsp;The LAP makes up 24-bits of the BD_ADDR. &nbsp;The LAP is
+used for uniquely identifying a Bluetooth device as part of the Access
+Code and synchronization word information that precedes the Bluetooth
+baseband header for every transmitted frame.</li>
+
+
+        <li>UAP: The Upper Address Part of the BD_ADDR is 8-bits
+of the device MAC address, representing a portion of the 24-bit prefix
+that is allocated to vendors by the IEEE (OUI). &nbsp;The UAP is
+used for seeding various algorithms used in the Bluetooth
+specification, including the generation of the Header Error Correct
+(HEC) field used to identify accidentally corrupted Bluetooth packets
+in transit.</li>
+
+
+        <li>NAP: The Non-significant Address Part makes up the
+remaining 16 bits of the BD_ADDR information, and the remaining 16 bits
+of the OUI. &nbsp;The NAP value is not used for any significant
+purposes for Bluetooth networking, other than that it is present in
+Frequency Hopping Synchronization frames.</li>
+
+
+      
+      </ul>
+
+
+      <br>
+
+
+The format of the BD_ADDR information is shown below. &nbsp;Note
+that this diagram represents the BD_ADDR information in "Bluetooth
+Order", with the least-significant bit at the left-most position.<br>
+
+
+      <br>
+
+
+      
+      <div style="text-align: center;"><img style="width: 430px; height: 203px;" alt="Bluetooth Device Address" src="images/bdaddr.jpg"><br>
+
+
+      <br>
+
+
+      
+      <div style="text-align: left;">More information
+about Bluetooth networking is available in the Bluetooth Special
+Interest Group (SIG) specification documentation at <a href="http://www.bluetooth.org">http://www.bluetooth.org</a>.</div>
+
+
+      </div>
+
+
+      </td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td valign="top">Q:</td>
+
+
+      <td valign="top">Why is this information interesting?</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td valign="top">A:</td>
+
+
+      <td valign="top">The LAP information is allocated
+uniquely for each Bluetooth device, but the UAP and NAP are part of the
+Organizationally Unique Identifier (OUI). &nbsp;We're interested in
+collecting UAP and NAP information to determine what OUI's are being
+used by vendors for BD_ADDR values. &nbsp;With this information, we
+can correlate manufacturer information to a specific device, and
+accelerate Bluetooth device discovery.</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td valign="top">Q:</td>
+
+
+      <td valign="top">Why should I share this information
+with you?</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td valign="top">A:</td>
+
+
+      <td valign="top">We are independent researchers
+without commercial funding or alterior motives. &nbsp;We're simply
+interested in evaluating how vendors are using NAP and UAP information.
+&nbsp;Since we can only get so far by assessing the devices that we
+own specifically, we're asking for your help in this effort.
+&nbsp;If we are able to identify any particularly useful analysis
+mechanisms from the information we obtain through this community
+effort, we will share our results openly and publicly to make
+meaningful improvements to the wireless security and networking
+industries.</td>
+
+
+    </tr>
+
+
+    <tr>
+
+      <td valign="top">Q:</td>
+
+      <td valign="top">Who is behind this effort?</td>
+
+    </tr>
+
+    <tr>
+      <td valign="top">A:<br>
+      </td>
+      <td valign="top">
+      <ul>
+        <li>Joshua Wright (jwright@hasborg.com)</li>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">Q:</td>
+      <td valign="top">Why isn't my entry listed in "The List" yet?</td>
+    </tr>
+    <tr>
+
+      <td valign="top">A:</td>
+
+      <td valign="top">
+      For purposes of data validation, we only list entries that have matching OUI's submitted by more than one host.</td>
+
+    </tr>
+
+    <tr>
+
+
+      <td valign="top">Q:</td>
+
+
+      <td valign="top">What's with the Smurf?</td>
+
+
+    </tr>
+
+
+    <tr>
+
+
+      <td valign="top"></td>
+
+
+      <td valign="top">It's a light take on the Smurf's
+episode where one Smurf becomes infected with a communicable disease,
+and turns purple. &nbsp;When purple, the Smurf seeks out to infect
+other Smurfs (by biting them on the butt) and yells out "GNAP, GNAP" in
+a torrets-like fashion. &nbsp;It's juvenile, I know.</td>
+
+
+    </tr>
+
+
+  
+  </tbody>
+</table>
+
+
+<br>
+
+
+<br>
+
+
+<big><big><big><big><a name="PRIVACY"></a>Privacy<br>
+
+
+</big></big></big></big>The collection of
+Bluetooth Device Address (BD_ADDR) prefix information is for the use of
+research to identify common MAC address prefixes that are allocated to
+Bluetooth devices. &nbsp;This information will not be sold or
+licensed under any circumstances. &nbsp;Once verified, the content
+that is submitted is made publicly available for others to leverage for
+their own research projects as well, such that the project abides by
+the same privacy principles outlined here.<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+<br>
+
+
+</body>
+</html>
