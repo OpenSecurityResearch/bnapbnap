@@ -32,7 +32,7 @@ $devices[] = "Other";
 
 $dbfile = "bnapbnap.db";
 
-$thelistquery = 'select distinct(bdaddr0 || ":" || bdaddr1 || ":" || bdaddr2)   bdprefix, partnum, manuf, function, vendor from bnap, oui where bdprefix = oui and oui != "" group by bdprefix having count(submitterhost) > 1';
+$thelistquery = 'select distinct(bdaddr0 || ":" || bdaddr1 || ":" || bdaddr2) bdprefix, partnum, manuf, function, vendor from bnap, oui where bdprefix = oui and oui != "" group by bdprefix having count(submitterhost) > 1';
 
 function response_error($message)
 {

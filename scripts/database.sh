@@ -17,7 +17,7 @@ $SQLITE_BIN bnapbnap.db "
 		manuf		TEXT DEFAULT \"\",
 		function	TEXT DEFAULT \"\",
 		timeentered	DATETIME NOT NULL,
-		PRIMARY KEY (bdaddr0, bdaddr1, bdaddr2, bdaddr3, submitterhost)
+		PRIMARY KEY (bdaddr0, bdaddr1, bdaddr2, submitterhost)
 	)"
 echo -e "[+] \tCreating oui table"
 $SQLITE_BIN bnapbnap.db "
@@ -34,8 +34,8 @@ echo "[+] Importing oui.iconv into bnapbnap.db"
 ./oui-insert.rb oui.iconv | $SQLITE_BIN bnapbnap.db
 
 echo "[+] Importing jlw-entries.sql into bnapbnap.db"
-#cat jlw-entries.sql | $SQLITE_BIN bnapbnap.db 
-sort -u jlw-entries.sql | grep -v "127.0.0.2" | $SQLITE_BIN bnapbnap.db 
+cat jlw-entries.sql | $SQLITE_BIN bnapbnap.db 
+#sort -u jlw-entries.sql | grep -v "127.0.0.2" | $SQLITE_BIN bnapbnap.db 
 
 echo "[+] Cleaning up"
 rm oui.iconv

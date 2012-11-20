@@ -116,16 +116,16 @@ if (isset($_POST['dataset'])) {
 		$sql .= "DATETIME('NOW')";
 		$sql .= ")";
 
-		$db = sqlite_open($dbfile);
+		$db = new SQLite3($dbfile);
 		if ($db == NULL) {
 			response_error("Unable to open database.  Please try later.\n");
 			exit;
 		}
-		if (sqlite_query($db , $sql) == FALSE) {
+		if ($db->query($sql) == FALSE) {
 			response_error("Error inserting record.  Perhaps you (or someone from your IP address) has already submitted this record?\n");
 			exit;
 		}
-		sqlite_close($db);
+		$db->close();
 
 		response_success("You rock!  Thanks for the submission.  If you have more addresses to share, enter them now!\n");
 	}
@@ -369,7 +369,6 @@ function validate_submit()
 
         <td>
         <select name=\"function\" id=\"function\">
-        <option name=\"Unknown\" selected>Unknown</option>
 ";
 	foreach($devices as $key=>$value) {
 		print "<option name=\"$value\">$value</option>\n";
