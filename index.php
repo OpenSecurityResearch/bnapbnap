@@ -265,11 +265,10 @@ function validate_submit()
 
 <div style=\"text-align: center; font-family: Verdana;\">
 <small>
-<a href=\"readme.html#ABOUT\" target=\"_blank\">About</a> | 
-<a href=\"readme.html#PRIVACY\" target=\"_blank\">Privacy</a> | 
-<a href=\"thelist.php\" target=\"_blank\">The List</a> | 
-<a href=\"code.html\" target=\"_blank\">Code</a> | 
-<a href=\"mailto:jwright@hasborg.com\">Contact</a>
+<a href=\"readme.html\">About</a> | 
+<a href=\"readme.html#PRIVACY\">Privacy</a> | 
+<a href=\"thelist.php\">The List</a> | 
+<a href=\"code.html\">Code</a> 
 <br>
 </small>
 
@@ -283,7 +282,7 @@ function validate_submit()
 
       <td style=\"text-align: center;\"><big><big style=\"font-weight: bold;\"><big><big><big>BNAP, BNAP</big></big></big></big><br>
 
-      Collecting Bluetooth Device Addresses, one device at a time</td>
+      Collecting Bluetooth Device Addresses, one device at a times<br><BR>Back from the dead!</td>
 
     </tr>
 
