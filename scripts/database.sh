@@ -37,6 +37,11 @@ echo "[+] Importing jlw-entries.sql into bnapbnap.db"
 cat jlw-entries.sql | $SQLITE_BIN bnapbnap.db 
 #sort -u jlw-entries.sql | grep -v "127.0.0.2" | $SQLITE_BIN bnapbnap.db 
 
+# from http://www.hackfromacave.com/projects/bpp.html
+# You'll get some errors on the sqlite import because we dont care about bdaddr3
+echo "[+] Importing bluetooth_profile_list-2013-01-14.sql into bnapbnap.db"
+cat bluetooth_profile_list-2013-01-14.sql | $SQLITE_BIN bnapbnap.db
+
 echo "[+] Cleaning up"
 rm oui.iconv
 

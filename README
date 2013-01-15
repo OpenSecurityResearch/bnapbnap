@@ -12,4 +12,12 @@ We're bringing this project back to life because
 it still has a place in the world, especially for 
 those who don't own a ubertooth :) 
 
+2013-01-14 Update:
+	- Merged in LAP info from http://www.hackfromacave.com/projects/bpp.html
+	- Updated headers on pages
+	- Updated about section
+	- created bpp_parser.py
+	- updated bnapbnap.db
+	- updated database.sh
+
 -brad antoniewicz
