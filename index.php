@@ -282,7 +282,7 @@ function validate_submit()
 
       <td style=\"text-align: center;\"><big><big style=\"font-weight: bold;\"><big><big><big>BNAP, BNAP</big></big></big></big><br>
 
-      Collecting Bluetooth Device Addresses, one device at a times<br><BR>Back from the dead!</td>
+      Collecting Bluetooth Device Addresses, one device at a time<br><BR>Back from the dead!</td>
 
     </tr>
 
