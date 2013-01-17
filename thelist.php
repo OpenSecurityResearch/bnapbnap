@@ -17,7 +17,8 @@ header("Cache-Control: no-store, no-cache");
 
 print "prefix,partnum,manufacturer,function,ouivendor\n";
 while ($record = $records->fetchArray()) {
-	$oui_stmt = "select vendor from oui where oui=\"" . $record[0] . "\";";
+	# Must rather use PDO but need to go back and change everything
+	$oui_stmt = "select vendor from oui where oui=\"" . SQLite3::escapeString($record[0]) . "\";";
 	$oui_query = $db->querySingle($oui_stmt);
 	echo $record[0] . "," . $record[1] . "," . $record[2] . "," . $record[3] . ",";
 			
