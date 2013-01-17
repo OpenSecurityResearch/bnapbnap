@@ -17,10 +17,16 @@ header("Cache-Control: no-store, no-cache");
 
 print "prefix,partnum,manufacturer,function,ouivendor\n";
 while ($record = $records->fetchArray()) {
-	echo $record[0] . "," . $record[1] . "," .
-			$record[2] . "," . $record[3] . "," .
-			$record[4] . "\n";
+	$oui_stmt = "select vendor from oui where oui=\"" . $record[0] . "\";";
+	$oui_query = $db->querySingle($oui_stmt);
+	echo $record[0] . "," . $record[1] . "," . $record[2] . "," . $record[3] . ",";
+			
+	if ($oui_query == FALSE || $oui_query == "") {
+		echo "Unknown\n";
+	} else {
+		echo $oui_query . "\n";
+	}
 }
-
 $db->close();
+
 exit;
